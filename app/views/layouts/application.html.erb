@@ -8,20 +8,23 @@
   </head>
   <body>
     <%= nav_bar fixed: :top, brand: "Helper Group", responsive: true do %>
-    <%#= menu_group do %>
-        <%#= menu_item "Home", root_path %>
-        <%#= menu_divider %>
-        <%#= drop_down "Products" do %>
-            <%#= menu_item "Things you can't afford", root_path %>
-            <%#= menu_item "Things that won't suit you anyway", root_path %>
-            <%#= menu_item "Things you're not even cool enough to buy anyway", root_path %>
-            <%# if current_user.lives_in_hackney? %>
-                <%#= menu_item "Bikes", fixed_wheel_bikes_path %>
-            <%# end %>
-        <%# end %>
-        <%#= menu_item "About Us", root_path %>
-        <%#= menu_item "Contact", root_path %>
-    <%# end %>
+    <% if user_signed_in? %>
+      <%= menu_group do %>
+          <%#= menu_item "Home", root_path %>
+          <%#= menu_divider %>
+          <%#= drop_down "Products" do %>
+              <%#= menu_item "Things you can't afford", root_path %>
+              <%#= menu_item "Things that won't suit you anyway", root_path %>
+              <%#= menu_item "Things you're not even cool enough to buy anyway", root_path %>
+              <%# if current_user.lives_in_hackney? %>
+                  <%#= menu_item "Bikes", fixed_wheel_bikes_path %>
+              <%# end %>
+          <%# end %>
+          <%#= menu_item "About Us", root_path %>
+          <%#= menu_item "Contact", root_path %>
+          <%= menu_item "Activities", activities_path %>
+      <% end %>
+    <% end %>
     <%= menu_group pull: :right do %>
         <% if user_signed_in? %>
           <li class="">
