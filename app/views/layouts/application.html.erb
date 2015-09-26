@@ -23,11 +23,14 @@
         <%#= menu_item "Contact", root_path %>
     <%# end %>
     <%= menu_group pull: :right do %>
-        <% if false #current_user %>
-            <%= menu_item "Log Out", root_path %>
+        <% if user_signed_in? %>
+          <li class="">
+            <%#= link_to 'Logout', destroy_user_session_path, :methode => :delete, :confirm => 'Are you sure want to Log out?' %>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete, :confirm => 'Are you sure want to Log out?') %>
+          </li>
         <% else %>
-        <li class=""><a href="/">Log in</a></li>
-        <li class=""><a href="/">Sign Up</a></li>
+        <li class=""><a href="<%= new_user_session_path %>">Log in</a></li>
+        <li class=""><a href="<%= new_user_registration_path %>">Sign Up</a></li>
         <%#= menu_item "Log in", root_path %>
         <%#= menu_item "Sign Up", root_path %>
         <% end %>
