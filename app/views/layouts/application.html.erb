@@ -28,8 +28,7 @@
     <%= menu_group pull: :right do %>
         <% if user_signed_in? %>
           <li class="">
-            <%#= link_to 'Logout', destroy_user_session_path, :methode => :delete, :confirm => 'Are you sure want to Log out?' %>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete, :confirm => 'Are you sure want to Log out?') %>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete, 'data-confirm' => 'Are you sure want to Log out?') %>
           </li>
         <% else %>
         <li class=""><a href="<%= new_user_session_path %>">Log in</a></li>
